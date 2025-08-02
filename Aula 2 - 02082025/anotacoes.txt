@@ -1,0 +1,81 @@
+Inicializar diretório
+git init
+
+Informar usuário do projeto
+git config --global user.name "Raphael Garcia"
+git config --global user.email "profraphaelgarcia@gmail.com"
+
+Verificar status dos arquivos e diretórios
+git status
+
+Preparar TODOS arquivos ao versionamento
+git add .
+
+Se quiser colocar apenas um arquivo/diretório, no lugar do ponto, informar o nome do arquivo ou diretório
+git add .\src\app.js
+
+Comitar arquivo
+git commit -m "add arquivo README"
+
+
+Verificar ramificação
+git branch
+
+Alterar nome da branch de master para main
+git branch -m master main
+
+Criar nova ramificação
+git switch -c nova-funcionalidade
+
+Alternar ramificação
+git switch main
+git switch nova-funcionalidade
+
+Ver diferenças
+git diff main nova-funcionalidade
+
+Fundir as branches
+No ramo main, comandar: 
+git merge nova-funcionalidade
+
+
+Excluir branch
+git branch -d nova-funcionalidade
+
+Ver log das alterações
+git log ou git log --oneline
+
+
+Voltar numa versão anterior
+git checkout <código da versão>
+
+Exemplo: git checkout 59f6519
+
+Voltar para a versão em main
+git checkout main
+
+Apagar uma versão
+git reset --hard <cod. versão>
+
+
+Vincular projeto ao servidor GIT
+git remote add origin https://github.com/profRaphaelGarcia/projeto-a2-js.git
+
+Subir projeto ao repositório
+git push -u origin main
+
+
+
+Clonar
+git clone <link do repositorio no git>
+
+
+
+
+
+
+
+
+
+
+

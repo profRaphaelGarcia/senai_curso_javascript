@@ -1,0 +1,52 @@
+Comandos do terminal Windows
+
+
+help
+
+Alternar diretório
+cd = change directory - muda de diretório
+
+Criação
+mkdir ou md = cria diretório
+
+Remoção de diretório SEM conteúdo dentro
+rmdir ou rd <diretorio>
+
+Remoção de ditetório COM conteúdo dentro
+rmdir <diretorio> /s
+
+Criar um novo arquivo caso não exista
+echo "Texto" > <arquivo>
+
+Adicionar conteúdo no arquivo
+echo "Texto" >> <arquivo>
+
+Criar um arquivo vazio
+type nul > <arquivo>
+
+Remover arquivo
+del <arquivo>
+
+Renomear arquivo
+rename <nome_antigo> <novo nome>
+
+Mover de local
+move <origem> <destino>
+
+Copiar arquivo
+copy <origem> <destino>
+
+Exibir conteúdo
+dir
+
+Exibir estrutura completa de diretórios/sub
+tree
+
+Exibir conteúdo
+type <arquivo>
+
+Limpar terminal
+cls
+
+
+

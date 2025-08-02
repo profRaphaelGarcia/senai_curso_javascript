@@ -1,0 +1,25 @@
+mkdir curso-dev-js
+
+git init
+
+git config --global user.name "Raphael Garcia"
+git config --global user.email "profraphaelgarcia@gmail.com"
+
+git add .
+git commit -m "Add arquivos da atividade 2"
+
+git branch -m master main
+
+git switch -c melhorias-estrutura
+
+git commit -m "Update nos arquivos README.md e pesquisa.txt"
+
+git switch main
+git merge melhorias-estrutura
+
+git remote add origin https://github.com/profRaphaelGarcia/curso-dev-js.git
+git clone https://github.com/profRaphaelGarcia/curso-dev-js.git
+
+git add .
+git commit -m "Update arquivo pesquisa.txt - inclusão de nome no fim do arquivo"
+git push -u origin main
