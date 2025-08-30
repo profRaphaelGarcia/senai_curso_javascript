@@ -9,3 +9,9 @@ CSS
 -- hover: aplica o estilo quando o usuário passa o mouse
 
 Atividade prática
+
+
+   RED     GREEN   BLUE
+00000000 00000000 00000000
+   00       00      00
+   FF       FF      FF
