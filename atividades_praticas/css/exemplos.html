@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Estilos</title>
+
+    <style>
+
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 10px;
+            padding: 0;
+            background-color: whitesmoke;
+        }
+
+        /* aplica o mesmo estilo para h1 e h2 */
+        h1,h2 {
+            text-align: center;
+        }
+
+        h1{
+            color: #3498db;
+            text-align: center;
+            font-size: 36px;
+        }
+
+        h2{
+            /* o mesmo que h1 */
+        }
+
+        p{
+            font-size: 18px;
+            /* color: #333; */
+            line-height: 1.0;
+            margin: 10px 0;
+        }
+
+        .box{
+            background-color: aquamarine;
+            color: chocolate;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        #info{
+            text-align: center;
+            font-size: 14px;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: cadetblue;
+            border-radius: 50px;
+        }
+
+        table{
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td{
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th{
+            background-color: #3498db;
+            color: white;
+        }
+
+        .border-exemplo{
+            margin: 20px;
+            padding: 20px;
+            border: 3px solid purple;
+            border-radius: 30px;
+        }
+
+        ul{
+            list-style-type: square;
+        }
+
+        li{
+            margin-bottom: 15px;
+        }
+
+        img{
+            border-radius: 20px;
+            width: 100%;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Exemplos Básicos de CSS</h1>
+
+<p>Exemplo de parágrafo</p>
+
+<div class="box">
+    <p>Exemplo de um parágrafo dentro da div com classe box</p>
+</div>
+
+<div id="info">
+    <p>Exemplo de um parágrafo dentro da div com id info</p>
+</div>
+
+<h2>Tabela de Exemplo</h2>
+<!-- table>tr>th*3 -->
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Cidade</th>
+    </tr>
+    <!-- tr>td*3 -->
+    <tr>
+        <td>Raphael</td>
+        <td>45</td>
+        <td>Presidene Prudente</td>
+    </tr>
+</table>
+     
+<div class="border-exemplo">
+    <p>Div com borda</p>
+</div>
+
+<h2>Listas</h2>
+<!-- ul>li{Item $}*3 -->
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+<h2>Exemplo de Imagem</h2>
+<img src="https://picsum.photos/600/300" alt="Imagem de exemplo">
+
+<marquee behavior="" direction=""><H1><a href="https://www.corinthians.com.br">VAI CORINTHIANS</a></H1></marquee>
+
+
+</body>
+</html>
