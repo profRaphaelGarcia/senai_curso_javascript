@@ -1,6 +1,6 @@
 1)
 cd Desktop
-U:\Users\21269985841\Desktop>mkdir projeto_responsivo
+U:\Users\2************1\Desktop>mkdir projeto_responsivo
 cd projeto_responsivo
 
 mkdir public
@@ -22,7 +22,7 @@ mkdir media
 3)
 cd media
 cd
-U:\Users\21269985841\Desktop\projeto_responsivo\public\media
+U:\Users\2************1\Desktop\projeto_responsivo\public\media
 
 4)
 cd ..
@@ -35,19 +35,19 @@ cd css
 echo body { margin: 0; padding: 0; background-color: lighgray; } > theme.css
 
 6)
-Pasta de U:\Users\21269985841\Desktop\projeto_responsivo\public\media
+Pasta de U:\Users\2************1\Desktop\projeto_responsivo\public\media
 mkdir imagens
 mkdir fontes
 
-Pasta de U:\Users\21269985841\Desktop\projeto_responsivo\public\css
+Pasta de U:\Users\2************1\Desktop\projeto_responsivo\public\css
 copy theme.css ..\..\docs
 
 
 7)
-U:\Users\21269985841\Desktop\projeto_responsivo\public\css>copy theme.css ..\..\docs
+U:\Users\2************1\Desktop\projeto_responsivo\public\css>copy theme.css ..\..\docs
 
 8)
-U:\Users\21269985841\Desktop\projeto_responsivo\public>cd js
+U:\Users\2************1\Desktop\projeto_responsivo\public>cd js
 echo console.log("Site responsivo pronto!"); > responsivo.js
 echo console.log("Utilitários carregados!"); > utils.js
 
@@ -55,9 +55,9 @@ echo console.log("Utilitários carregados!"); > utils.js
 rename utils.js helpers.js
 
 10)
-Pasta de U:\Users\21269985841\Desktop\projeto_responsivo\public
+Pasta de U:\Users\2************1\Desktop\projeto_responsivo\public
 
-U:\Users\21269985841\Desktop\projeto_responsivo\public>tree
+U:\Users\2************1\Desktop\projeto_responsivo\public>tree
 Listagem de caminhos de pasta para o volume Users
 O número de série do volume é D0B9-7395
 U:.
@@ -70,7 +70,7 @@ U:.
 
 
 11)
-U:\Users\21269985841\Desktop\projeto_responsivo\public>cd ..\docs
+U:\Users\2************1\Desktop\projeto_responsivo\public>cd ..\docs
 del theme.css
 
 12)
