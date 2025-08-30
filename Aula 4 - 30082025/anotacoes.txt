@@ -1,0 +1,10 @@
+CSS
+
+- Flexbox:
+É um modelo de layout unidimensional. Alinha os itens ao longo do eixo principal.
+
+- Grid Layout: é um modelo bidimensional - linhas e colunas.
+
+- Pseudo-classes
+-- hover: aplica o estilo quando o usuário passa o mouse
+
