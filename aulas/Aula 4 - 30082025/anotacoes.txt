@@ -8,3 +8,4 @@ CSS
 - Pseudo-classes
 -- hover: aplica o estilo quando o usuário passa o mouse
 
+Atividade prática
