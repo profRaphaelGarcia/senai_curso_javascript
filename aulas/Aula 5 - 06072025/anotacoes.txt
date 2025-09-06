@@ -1,0 +1,14 @@
+
+BOOTSTRAP
+
+- Framework CSS que utiliza JavaScript e CSS para estilizar
+
+- gutters são espaçamentos
+- Container é como um prédio
+- As linhas são como andares
+- As colunas são como escritórios dentro de um andares
+- Os gutters são as divisórias entre os escritórios
+
+
+
+lorem30 - gera um texto com 30 palavras

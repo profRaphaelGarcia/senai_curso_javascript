@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+        .h500{
+            height: 500px;
+        }
+        .h300{
+            height: 300px;
+        }
+        .h100{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Eemplos de Bootstrap</h1>
+    
+    <h2>Breakpoints</h2>
+    <p class="text-center text-sm-start">SM menor que 576px</p>
+    <p class="text-center text-md-end">MD maior/igual 768px</p>
+    <p class="text-center text-lg-start">LG maior/igual 992px</p>
+    <p class="text-center text-xl-end">XL maior/igual 1200px</p>
+    <p class="text-center text-xxl-start">XXL maior/igual 1400px</p>
+
+    <h2>Grids</h2>
+
+    <div class="container">
+        <!-- container-fluid cola nas laterais -->
+        <!-- div.row>div.col.h100*2 -->
+        <div class="row">
+            <div class="col h100 bg-danger"></div>
+            <div class="col h100 bg-primary"></div>
+            <div class="col h100 bg-warning"></div>
+        </div>
+    </div>
+
+    <!-- div.container>div.row>div.col-12*4 -->
+     <!-- mt = margin top 5 -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 h100 bg-danger"></div>
+            <div class="col-12 col-xl-6 col-lg-3 h500 bg-warning"></div>
+            <div class="col-12 col-xl-6 col-lg-9 h500 bg-primary"></div>
+            <div class="col-12 h100 bg-success"></div>
+        </div>
+    </div>
+    
+    <div class="container mt-5">
+        <button type="submit">Primary</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Redes Sociais
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://www.youtube.com">Youtube</a></li>
+              <li><a class="dropdown-item" href="https://www.facebook.com">Facebook</a></li>
+              <li><a class="dropdown-item" href="https://www.instagram.com">Instagram</a></li>
+            </ul>
+          </div>
+    </div>
+
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <i class="bi bi-windows">Windows 10</i>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>
