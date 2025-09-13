@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores em JavaScript</title>
+</head>
+<body>
+
+    <p>Aperte F12 para ver o resultado!</p>
+
+    <script>
+
+        //VARIÁVEIS
+
+        var exemploVar = "Raphael";
+        // o var permite recriar a mesma variável
+        var exemploVar = "Senai";
+        console.log(exemploVar);
+
+        let exemploLet = "Prudente";
+        exemploLet = "Regente";
+        // o let não deixa recriar a mesma variável
+        //let exemploLet = "teste";
+
+        console.log(exemploLet);
+
+        const exemploConst = "Setembro";
+        //constante não aceite troca de valor
+        //exemploConst = "Novembro";
+        console.log(exemploConst);
+
+
+        //TIPOS DE DADOS
+
+        //String
+        const nome = "Raphael";
+        const sobrenome = 'Garcia'; // pode criar com apóstrofo também
+
+        const multiplasLinhas = `
+        primeira linha
+        segunda linha
+        terceira linha`;
+
+        console.log(nome,sobrenome);
+
+        console.log(nome,"-",sobrenome);
+        console.log(nome + " - " + sobrenome);
+        console.log(`${nome} - ${sobrenome}`);
+
+        let primeiroCaracter = nome[0];
+        console.log(primeiroCaracter);
+        let tamanhoNome = nome.length;
+        console.log(tamanhoNome);
+
+        //Mostra o nome caracter por caracter
+        let letra;
+        let tamNome = 0;
+        if (nome != null) {
+            tamNome = nome.length;
+        
+            for (let i = 0; i < tamNome; i++) {
+                letra = nome[i];
+                console.log(letra);
+            }
+
+            //Mostra o nome caracter por caracter de ordem inversa
+            for (let i = tamNome; i >= 0; i--) {
+                letra = nome[i];
+                console.log(letra);
+            }
+        }
+
+
+        //Number
+        const idade = 18;
+        const altura =  1.83;
+        const temperatura = -10;
+        console.log(idade);
+
+        //Boolean
+        const ativo = true;
+        const inativo = false;
+        const maiorIdade = idade > 18;
+        console.log(maiorIdade);
+
+        //NULL E UNDEFINED
+        const valorNulo = null;
+        let valorIndefinido1;
+        const valorIndefinido2 = undefined;
+
+        //OPERADORES ARITMÉTICOS
+        const a = 15;
+        const b = 5;
+        console.log(a + b);
+
+        console.log(a - b);
+        console.log(a * b);
+        console.log(a / b);
+        console.log(a % b);
+        console.log(a ** b);
+
+        let contador = 10;
+        console.log(contador++);            // 10 mostra o valor sem o acréscimo
+        console.log(contador);              // 11 mostra o valor acrescido pelo anterior
+        console.log(++contador);            // 12 incrementa e mostra o valor
+
+        //ATRIBUIÇÃO
+        let num = 10;
+        num+5;
+        console.log(num);
+
+        num-=3;
+        console.log(num);
+
+        num*=2;
+        console.log(num);
+
+        num/=2;
+        console.log(num);
+
+        //OPERADORES DE CMOPARAÇÃO
+        const x = 5;
+        const y = "5";
+        const z = 10;
+
+        console.log("Comparador de igualdade - apenas conteúdo");
+        console.log(x == y);
+
+        console.log("Comparador de igualdade - conteúdo e tipo");
+        console.log(x === y);
+        console.log(x != y);
+        console.log("Comparador de igualdade - conteúdo e tipo");
+        console.log(x !== y);
+
+        console.log(x > y);
+        console.log(z >= x);
+        console.log(x < y);
+        console.log(z <= x);
+
+        //OPERADORES LOGICOS
+        // ! not,  || or,  && and,   ^ XOR = ou exclusivo
+        const temIdade = true;
+        const temCarteira = true;
+        const temDinheiro = false;
+
+        console.log(!temIdade);                                   // false
+        console.log(temIdade && temCarteira);                    // true;
+        console.log(temIdade && temCarteira && temDinheiro);     // false
+  
+        console.log(temIdade || temCarteira || temDinheiro);     // true
+        
+        //XOR (^) só pode um ser verdadeiro
+        console.log(temIdade ^ temCarteira);                     //false 0
+        console.log(temIdade ^ temDinheiro);                    //true  1
+
+        //CONVERSÕES DE TIPO
+        console.log("5" + 2);               // 52  concatenou
+        console.log("5" - 2);               // 3   não consegue juntar, então subtrai
+        console.log("5" * 2);               // 10  idem
+
+        //CONVERSÕES EXPLÍCITAS
+
+        //String -> Number
+        const textoNumero = "42.7";
+        console.log(Number(textoNumero));       // 42.7
+        console.log(parseInt(textoNumero));     // 42
+        console.log(parseFloat(textoNumero));   // 42.7
+        console.log(parseFloat("42px"));        // 42
+
+
+        //Number -> String
+        const numero = 123.10;
+        console.log(String(numero));            // "123.1"
+        console.log(numero.toString());         // "123.1"
+
+        //Bool
+        console.log(Boolean(0));                // false
+        console.log(Boolean(1));                // true
+        console.log(Boolean(""));               // false - não tem nada
+        console.log(Boolean("Tem conteúdo"));   // true - tem contúdo
+
+        //Verificar tipo de variável
+        const numero1 = 1;
+        const string1 = "Raphae";
+        console.log(typeof(numero1));           // number
+        console.log(typeof numero1);            // number
+
+        console.log(typeof(string1));           // string
+        console.log(typeof string1);            // string
+
+    </script>
+    
+</body>
+</html>

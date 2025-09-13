@@ -1,2 +1,32 @@
 JavaScript
 
+alert('Mensagem para o usuário');
+
+console.log('Mensagem no console do navegador');
+
+Comentários
+// comentário de uma linha
+
+/*   
+ 
+  Comentário em bloco
+  teste
+  teste
+
+   */
+
+/*  comentario de uma linha   */
+
+
+Criação de variáveis:
+var: possui espaço global de função, não permite re-declaracao, mas ignora blocos {} - é como se fosse uma caixa de papelão
+let: tem escopo no bloco, não permite re-declaracao no mesmo escopo {} - é uma caixa mais protegida
+const: tem escopo no bloco, não permite reatribuição e nem re-declaração - é um cofre lacrado
+
+Comparadores
+===  Além dovalor, compara também o tipo
+
+Input - Prompt
+var valor = prompt("Mensagem de solicitação");
+
+
