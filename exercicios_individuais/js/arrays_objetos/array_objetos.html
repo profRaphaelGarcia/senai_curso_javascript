@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Arrays e Objetos</title>
+</head>
+<body>
+
+    <p>F12 para exibir</p>
+
+    <script>
+        
+        //Exercício 1 - array
+
+        const playlist = ["Música 1","Música 2","Música 3"];
+        console.log(`Minha Playlist: ${playlist}`);
+
+        console.log(`Primeira música: ${playlist[0]}`);
+
+        playlist.push("Música 4");
+        console.log(`Inclusão de mais uma música ${playlist}`);
+
+        playlist.pop();
+        console.log(`Remoção da última música ${playlist}`);
+
+        console.log(`Tamanho da playlist: ${playlist.length}`);
+
+
+        //Exercício 2 - objeto
+        const filme = {
+            titulo: "O Palmeiras não tem mundial",
+            ano: 1951,
+            diretor: "Tia Leila"
+        }
+
+        console.log(`O filme ${filme.titulo}, dirigido por ${filme.diretor}, foi lançado em ${filme.ano}`);
+
+        filme.personagens = ["Porcada","Mancha-verde","TUP"];
+        console.log(filme);
+        
+
+    </script>
+    
+</body>
+</html>

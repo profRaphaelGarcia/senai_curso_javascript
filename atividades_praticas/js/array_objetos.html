@@ -13,7 +13,85 @@
         //ARRAYS [] e OBJETOS {}
         //ARRAY -> ÍNDICE 1, 2, 3
         //OBJETOS -> {CHAVE : VALOR}
+
+        //Inicializa um objeto sem elemento
+        //const frutas = [];
+
+        const frutas = ["Maçã","Banana","Laranja","Uva","Pera"];
         
+        console.log(frutas);
+
+        for (let i = 0; i < frutas.length; i++)
+            console.log(frutas[i]);
+
+        let i = 0;
+        while (i < frutas.length) {
+            console.log(frutas[i])
+            i++;
+        }
+
+ 
+        //inserir item na ÚLTIMA posição
+        frutas.push("Jaca");
+        console.log(frutas);
+
+        //inserir item na PRIMEIRA posição
+        frutas.unshift("Abacaxi");
+        console.log(frutas);
+
+        //substituir posição
+        frutas[0] = "Morango";
+        console.log(frutas);
+
+        //excluir itens
+        //exclui o ÚLTIMO item
+        frutas.pop();
+        console.log(frutas);
+
+        //exclui o PRIMEIRO item
+        frutas.shift();
+        console.log(frutas);
+
+        //elimina o conteúdo do item, mas mantém a posição
+        delete frutas[1];
+        console.log(frutas);
+
+        //inserir e excluir
+        frutas.splice(1,2,"Limão");
+        console.log(frutas);
+
+        //remover um item da posição um
+        frutas.splice(1,1);
+        console.log(frutas);
+
+
+        //OBJETOS
+
+        const pessoa = {
+            nome: "Raphael",
+            idade: 45,
+            altura: 1.83,
+            amigos: ["Pedro", "Maria"]
+        }
+        console.log(pessoa);
+
+        console.log(pessoa.nome);
+        console.log(pessoa['nome']);
+        console.log(pessoa.amigos);
+        console.log(pessoa.amigos[0]);
+
+        //Inserir valores
+        pessoa.cidade = "Presidente Prudente";
+        console.log(pessoa);
+
+        //alterar valores
+        pessoa.cidade = "Regente"
+        console.log(pessoa);
+
+        //excluir 
+        delete pessoa.cidade;
+        console.log(pessoa);
+
 
 
     </script>
