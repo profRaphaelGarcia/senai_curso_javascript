@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores JS</title>
+</head>
+<body>
+ 
+    <p>Aperte F12 para ver o resultado!</p>
+
+    <script>
+      
+        // Variaveis
+
+        var exemploVar = "João";
+        var exemploVar = "Senai";
+        exemploVar = "111111";
+        console.log(exemploVar);
+
+        let exemploLet = "Prudente";
+        exemploLet = "Regente";
+        console.log(exemploLet);
+        let exemploLet2 = "1111111";
+        
+        const exemploConst = "Setembro";
+        const exemploConst2 = "Outubro";
+        // exemploConst = "Lucas"
+        console.log(exemploConst)
+
+        // TIPOS DE DADOS
+
+        // String
+        const nome = "João";
+        const sobrenome = 'Garcia';
+        const multiplasLinhas = `primeira linha
+        segunda linha
+        terceira linha`;
+
+        console.log(nome,sobrenome);
+        console.log(nome,"-",sobrenome);
+        console.log(nome+"-"+sobrenome);
+        console.log(`${nome}-${sobrenome}`);
+        
+        
+
+        // Number (Inteiros(Int) e Decimal(float))
+        const idade = 18;
+        const altura = 1.83;
+        const temperatura = -10;
+        console.log(idade)
+        console.log(altura)
+        console.log(temperatura)
+
+        // Boolean (verdadeiro ou falso)
+        const ativo = true;
+        const inativo = false;
+        const maiorIdade = idade >= 18;
+        console.log(maiorIdade)
+
+        //null e undefined
+        const valorNulo = null;
+        let valorIndefinido;
+
+        // OPERADORES ARITMÉTICOS
+        // + - * / % ** ++ --
+
+        const a = 15;
+        const b = 5;
+        
+        console.log(a + b);
+        console.log(a - b);
+        console.log(a / b);
+        console.log(a * b);
+        console.log(a % b);
+        console.log(a ** b);
+       
+        console.log(a + b / a)
+
+        let contador = 10;
+
+        console.log(contador++);
+        console.log(contador);
+        console.log(++contador);
+
+        // Atribuição
+        let num = 10;
+        num+=5;
+        console.log(num);
+        
+        num-=3;
+        console.log(num);
+        
+        num*=2; 
+        console.log(num);
+
+        num/=4;
+        console.log(num);
+
+        // OPERADORES DE COMPARAÇÃO
+        const x = 5;
+        const y = "5";
+        const z = 10;
+
+        console.log(x == y);
+        console.log(x === y);
+        
+        console.log(x != y);
+        console.log(x !== y);
+
+        console.log(x > y);
+        console.log(z >= x);
+        console.log(x < y);
+        console.log(z <= x);
+
+        // OPERADORES LÓGICOS
+        // ! not, || or, && and
+        const temIdade = true;
+        const temCarteira = true;
+        const temDinheiro = false;
+
+        console.log(!temIdade);
+        console.log(temIdade && temCarteira);
+        console.log(temIdade && temCarteira && temDinheiro);
+        console.log(temIdade || temCarteira || temDinheiro);
+
+        // CONVERSÕES DE TIPO
+        
+        // Conversões Implicitas
+        
+        console.log("5" + 2);
+        console.log("5" - 2);
+        console.log("5" * 2);
+
+        // Conversões Explícitas
+
+        // String -> Number
+        const textoNumero = "42.7";
+        console.log(Number(textoNumero));
+        console.log(parseInt(textoNumero));
+        console.log(parseFloat(textoNumero));
+        console.log(parseFloat("42px"));
+
+        // Number -> String
+        const numero = 123.10;
+        console.log(String(numero));
+        console.log(numero.toString())
+
+        // Bool
+        console.log(Boolean(0));
+        console.log(Boolean(1));
+        console.log(Boolean(""));
+        console.log(Boolean("Lucas"));
+
+        const numero1 = 1;
+        const string1 = "João"
+        console.log(typeof numero1)
+        console.log(typeof string1)
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
