@@ -11,7 +11,80 @@
 
     <script>
 
+            const nomes = ["Nome 1","Nome 2","Nome 3","Nome 4"];
 
+            const numeros = [1,2,3,4,5];
+            const alunos = [
+                {nome: "Aluno 1", nota: 9.0},
+                {nome: "Aluno 2", nota: 8.6},
+                {nome: "Aluno 3", nota: 7.5},
+            ]
+
+
+            //for (variaval, condicao, incremento/decremento)
+
+            for (let i = 1; i <= 10; i++) {
+                console.log(i);
+            }
+
+            for (let i = 0; i < nomes.length - 1; i++)
+                console.log(alunos[i]);
+
+            for (let i = nomes.length -1; i >=0; i--)
+                console.log(alunos[i]);
+
+            //while e do while
+            //while (condição verdadeira)
+            let x = 1;
+            while (x <= 10) {
+                console.log(x);
+                x++;
+
+                if (x == 4)
+                    continue;
+
+                if (x == 5)
+                    break;
+            }
+
+            do {
+                console.log(x);
+                x++
+            } while (x <= 10)
+
+
+            //Tabuada
+            let numero = 7;
+            for (let i = 1; i <= 10; i++)
+                console.log(`${numero} x ${i} = ${numero * i}`)
+
+
+            //função de callback - executa uma função dentro de outra
+            //forEach percorrendo um array
+            nomes.forEach(function(nome) {
+                console.log(nome)
+            });
+
+            //forEach percorrendo um array de objetos
+            alunos.forEach(function(aluno) {
+                console.log(`${aluno.nome} nota ${aluno.nota}`);
+            });
+
+
+            //Dobrar o valor do array de números e atribuir ao novo array
+            novoArray = [];
+            for (let i = 0; i < numeros.length; i++)
+                novoArray.push(numeros[i] * 2);
+
+            console.log(novoArray);
+
+            //MAP
+            //Dobrar o valor do array com o MAP
+            const novoArray2 = numeros.map(function(numero){
+                return numero * 2;
+            });
+            console.log(novoArray2);
+            
 
     </script>
     
