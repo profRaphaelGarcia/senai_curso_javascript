@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Fichas de Alunos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5 ficha-alunos d-none" style="max-width: 500px;">
+        <h1 class="text-center mb-4">Fichas da Turma</h1>
+
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h2 class="card-title" id="aluno-nome">Clique em "Próximo" para começar</h2>
+                <p class="card-text fs-5">
+                    <strong>Idade:</strong> <span id="aluno-idade"></span> anos <br>
+                    <strong>Curso:</strong> <span id="aluno-curso"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-3">
+            <button class="btn btn-secondary" id="btn-anterior">← Anterior</button>
+            <button class="btn btn-primary" id="btn-proximo">Próximo →</button>
+        </div>
+    </div>
+    <div class="container mt-5" style="max-width: 500px;">
+        <div class="card shadow mt-5" id="card-cadastro">
+            <div class="card-header">
+                <h3 class="mb-0">Cadastrar Novo Aluno</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome:</label>
+                    <input type="text" class="form-control" id="nome">
+                </div>
+                <div class="mb-3">
+                    <label for="idade" class="form-label">Idade:</label>
+                    <input type="number" class="form-control" id="idade" min="1" max="100">
+                </div>
+                <div class="mb-3">
+                    <label for="curso" class="form-label">Curso:</label>
+                    <input type="text" class="form-control" id="curso">
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-success flex-fill" id="btn-salvar">Salvar</button>
+                    <button type="button" class="btn btn-secondary flex-fill" id="btn-cancelar">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        /* CADASTRO E CANCELAR */
+
+        const iptNome  = document.querySelector("#nome");
+        const iptIdade = document.querySelector("#idade");
+        const iptCurso = document.querySelector("#curso");
+
+        const btnSalvar  = document.querySelector("#btn-salvar");
+        const btnCancelar   = document.querySelector("#btn-cancelar");
+
+        const alunos = [];
+
+        function cadastrar () {
+            const nome  = iptNome.value.trim();
+            const idade = Number(iptIdade.value.trim());
+            const curso = iptCurso.value.trim();
+            //.trim() remove os espaços em branco das extermidades
+
+            //se não houve texto, vai considerar como falso
+            if (nome && idade && curso) {
+                //adiciona um item no array como objeto
+                alunos.push({nome,idade,curso});
+                alert("O aluno foi cadastrado com sucesso.");
+                cancelar();
+
+                //pega a última posição do elemento adicionado
+                idAtual = alunos.length - 1;
+
+                renderizarAluno();
+            }
+            else
+                alert("Preencha todos os campos.");
+
+            
+        }
+
+        function cancelar () {
+            iptNome.value = "";
+            iptIdade.value = "";
+            iptCurso.value = "";
+        }
+    
+        //Chamar as funções conforme o clique nos botões
+        btnSalvar.addEventListener('click', cadastrar);
+        btnCancelar.addEventListener('click', cancelar);
+
+        /* FIM CADASTRO */
+
+
+
+        /* EXIBE A FICHA DO ALUNO COM ACIONAMENTO DOS BOTÕES ANTERIOR E PRÓXIMO */
+
+        const nome = document.querySelector("#aluno-nome");
+        const idade = document.querySelector("#aluno-idade");
+        const curso = document.querySelector("#aluno-curso");
+        const btnAnterior = document.querySelector("#btn-anterior");
+        const btnProximo  = document.querySelector("#btn-proximo");
+
+        let idAtual = 0; // primeiro aluno sempre na posição 0
+
+        function renderizarAluno () {
+            if (alunos.length > 0) {
+                nome.textContent  = alunos[idAtual].nome;
+                idade.textContent = alunos[idAtual].idade;
+                curso.textContent = alunos[idAtual].curso;
+
+                //Exibição da ficha do aluno
+                //acessa a classe ficha-alunos com o "." e remove o d-none para exibir a ficha
+                // se fosse pelo id, seria #ficha-alunos. Como não tem id, acessou pela classe
+                document.querySelector(".ficha-alunos").classList.remove("d-none");
+                
+            }
+        }
+
+        btnProximo.addEventListener('click', proximo);
+        btnAnterior.addEventListener('click', anterior);
+
+
+        function proximo () {
+            idAtual++;
+            if (idAtual >= alunos.length)
+                idAtual = 0;
+
+            renderizarAluno();
+        }
+
+        function anterior () {
+            idAtual--;
+            if (idAtual < 0)
+                idAtual = alunos.length - 1;
+
+            renderizarAluno();
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
