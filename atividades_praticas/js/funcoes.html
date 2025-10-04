@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+</head>
+<body>
+
+    F12
+
+    <script>
+
+        //funcao nomeada sem parâmetros
+
+        function exercicio1 () {
+            //codigo...
+        }
+
+
+        function saudacao () {
+            console.log("Olá mundo!");
+        }
+        saudacao();
+
+        //função com parâmetro
+
+        function soma(n1, n2) {
+            console.log(n1+n2);
+        }
+        soma(2,4);
+        soma(5,8);
+
+        function somaComReorno(n1, n2) {
+            return n1 + n2;
+    
+            //const soma = n1 + n2;
+            //return soma;
+        }
+        const resultado = somaComReorno(5,4);
+        console.log(resultado);
+
+
+        //função anônima
+        const subtrair = function(n1, n2) {
+            return n1 - n2;
+        }
+        console.log(subtrair(4,2));
+
+        //funcão anônima - arrow function
+
+        const multiplicar = (n1, n2) => {
+            return n1 * n2 //return explicito
+        }
+        console.log(multiplicar(3,3));
+
+        const dividir = (n1,n2) => n1 / n2; //return implícito
+        console.log(dividir(6,2));
+
+        //funcao com parâmetro padrão/opcional
+        function cumprimentar(nome="Visitante") {
+            console.log(`Olá ${nome}`);
+        }
+        cumprimentar();
+        cumprimentar("Raphael");
+
+        //funcao callbakc
+        function calcular(n1, n2, operacao) {
+            return operacao(n1, n2);
+        }
+
+        console.log(calcular(2,2,somaComReorno));
+        console.log(calcular(3,2,multiplicar));
+
+        //função assíncrona
+        async function buscarDadosFeriados(ano) {
+            const resposta = await fetch("https://brasilapi.com.br/api/feriados/v1/"+ano);
+            //await espera a resposta chegar
+
+            //converte 
+            const dados = await resposta.json();
+            console.log(dados);
+
+        }
+        buscarDadosFeriados(2026);
+
+
+        //exercicio1
+        //calcular area
+        const calcularArea = (largula,altura) => largula * altura; 
+        console.log(calcularArea(6,3));
+
+
+        //exercicio2
+        //numero par
+        const ehPar = (numero) => {
+            if (numero % 2)   // resto do número == 0?
+                return "Ímpar";
+            return "Par";
+        }
+        console.log(ehPar(5));
+
+
+        const ehPar2 = (numero) => numero %  2 === 0 ? "Ímpar" : "Par";
+        console.log(ehPar(3));
+
+        //exercicio3
+        //converter celcius para fahrengheit
+        const celciusParaFahrenheit = (temperaturaCelcius) => {
+            return ((temperaturaCelcius * 9/5) + 32).toFixed(1);
+        }
+        console.log(celciusParaFahrenheit(30));
+
+
+
+    </script>
+    
+</body>
+</html>
