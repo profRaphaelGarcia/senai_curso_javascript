@@ -72,7 +72,9 @@
 
 
             //Dobrar o valor do array de números e atribuir ao novo array
-            novoArray = [];
+            // numeros = [10,20,30,40,50];
+            // novoArray = [20,40,60,80,100];
+            const novoArray = [];
             for (let i = 0; i < numeros.length; i++)
                 novoArray.push(numeros[i] * 2);
 
@@ -80,11 +82,33 @@
 
             //MAP
             //Dobrar o valor do array com o MAP
-            const novoArray2 = numeros.map(function(numero){
-                return numero * 2;
+            const novoArray2 = numeros.map(function(x){
+                return x * 2;
             });
             console.log(novoArray2);
             
+            //Função Arrow function com retorno implícito
+            const novoArray3 = numeros.map(x => x * 2);
+            console.log(novoArray3);
+
+
+            const alunosNovaNota = alunos.map(aluno => {
+                return {
+                    nome: aluno.nome,
+                    nota: aluno.nota * 0.9    //desconta 10% das notas
+                }
+            });
+            console.log(alunosNovaNota);
+
+            //filter
+            const arrayNumeros = [2,3,4,5,6];
+            const numerosPares = arrayNumeros.filter(numero => numero % 2 === 0);
+            console.log(numerosPares);
+
+
+            const alunosAprovados = alunosNovaNota.filter(aluno => aluno.nota >= 8);
+            console.log(alunosAprovados);
+
 
     </script>
     
