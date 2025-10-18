@@ -7,6 +7,10 @@ const telaCadastro = document.querySelector("#tela-cadastro");
 //Botões
 const btnAdicionar = document.querySelector("#btn-adicionar");
 const btnVoltarLista = document.querySelector("#btn-voltar-lista");
+const btnDownload = document.querySelector("#btn-download");
+const btnUpload = document.querySelector("#btn-upload");
+const inputUpload = document.querySelector("#input-upload");
+
 
 //Inputs
 const inputId = document.querySelector("#user-id");
@@ -185,6 +189,22 @@ function buscarUsuario () {
     console.log(usuariosFiltrados);
 }
 
+function downloadArquivo () {
+    const dados = JSON.stringify(usuarios);
+    const arquivo = new Blob([dados], {type: "application/json"});
+    const url = URL.createObjectURL(arquivo);
+    const linkDownload = document.createElement("a");
+    linkDownload.href = url;
+    linkDownload.download = "usuarios.json"; //nome do arquivo
+    linkDownload.click();
+    URL.revokeObjectURL(url);
+
+}
+
+function uploadArquivo () {
+
+}
+
 
 function inicializar() {
     btnAdicionar.addEventListener("click",mostrarTelaCadastro);
@@ -192,6 +212,10 @@ function inicializar() {
     btnCEP.addEventListener("click",buscarCEP);
 
     inputBusca.addEventListener('input',buscarUsuario);
+
+    btnDownload.addEventListener('click', downloadArquivo)
+    btnUpload.addEventListener('click', () => inputUpload.click());
+    inputUpload.addEventListener("change", uploadArquivo);
 
     form.addEventListener("submit", salvarUsuario);
     mostrarTelaLista();
