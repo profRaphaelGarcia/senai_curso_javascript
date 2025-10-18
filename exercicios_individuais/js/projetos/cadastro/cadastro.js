@@ -25,11 +25,15 @@ const inputObs = document.querySelector("#user-obs");
 const form = document.querySelector("#user-form");
 const tabelaCorpo = document.querySelector("#user-table-body");
 
+let idEmEdicao = null;
+
+const btnCEP = document.querySelector("#btn-buscar-cep");
 
 function mostrarTelaLista(){
     telaLista.classList.remove("d-none");
     telaCadastro.classList.add("d-none");
     renderizarTabela();
+    form.reset();
 }
 
 function mostrarTelaCadastro(){
@@ -37,11 +41,13 @@ function mostrarTelaCadastro(){
     telaLista.classList.add("d-none");
 }
 
-function salvarUsuario(){
+function salvarUsuario() {
+
     const id = Number(inputId.value);
     const nome = inputNome.value;
     const sobrenome = inputSobrenome.value;
     const email = inputEmail.value;
+    const cep = inputCep.value;
     const rua = inputRua.value;
     const numero = inputNumero.value;
     const complemento = inputComplemento.value;
@@ -51,11 +57,23 @@ function salvarUsuario(){
     const obs = inputObs.value;
 
     const usuario = {
-        id: id || Date.now(), nome, sobrenome, email, rua, numero, complemento, bairro, cidade, estado, obs
+
+        // Caso não exista o id, joga o date.now()
+        id: id || Date.now(), nome, sobrenome, email, cep, rua, numero, complemento, bairro, cidade, estado, obs
     }
 
-    usuarios.push(usuario);
+
+    if (idEmEdicao) {
+        const index = usuarios.findIndex(user => user.id === idEmEdicao);
+        if (index != -1)  //localizou algo
+            usuarios[index] = usuario;
+    }
+    else    
+        usuarios.push(usuario);
+
     salvarNoStorage();
+    form.reset(); //limpa o formulário
+    mostrarTelaLista;
 }
 
 function salvarNoStorage(){
@@ -91,9 +109,64 @@ function excluirUsuario(id){
     }
 }
 
+function editarUsuario(id) {
+    const usuario = usuarios.find(user => user.id === id);
+
+    if (!usuario) 
+        return;
+
+    idEmEdicao = id;
+
+    inputId.value = usuario.id;
+    inputNome.value = usuario.nome;
+    inputSobrenome.value = usuario.sobrenome;
+    inputEmail.value = usuario.email;
+    inputCep.value = usuario.cep;
+    inputRua.value = usuario.rua;
+    inputNumero.value = usuario.numero;
+    inputComplemento.value = usuario.complemento;
+    inputBairro.value  = usuario.bairro;
+    inputCidade.value = usuario.cidade;
+    inputEstado.value = usuario.estado;
+    inputObs.value = usuario.obs;
+
+    mostrarTelaCadastro();
+
+}
+
+async function buscarCEP() {
+    const cep = inputCep.value.replace(/\D/g,""); //expressão regular - filtra apenas por número
+
+    if (cep.length === 8) {
+        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
+        const dados = await resposta.json();     
+        console.log(dados);
+
+        if (!dados.erro) {
+            inputCep.value = dados.cep;
+            inputRua.value = dados.logradouro;
+            inputComplemento.value = dados.complemento;
+            inputBairro.value = dados.bairro;
+            inputCidade = dados.localidade;
+            inputEstado = dados.estado;
+        }
+        else   
+            alert("CEP inválido. Verifique o numero e tente novamente!");
+
+
+    }
+    else 
+        alert("Verifique a quantidade de números digitados!");
+
+}
+
+
 function inicializar(){
     btnAdicionar.addEventListener("click",mostrarTelaCadastro);
     btnVoltarLista.addEventListener("click",mostrarTelaLista);
+    btnCEP.addEventListener("click",buscarCEP);
+
     form.addEventListener("submit", salvarUsuario);
     mostrarTelaLista();
 
