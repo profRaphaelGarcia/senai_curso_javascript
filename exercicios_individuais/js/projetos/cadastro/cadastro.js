@@ -22,6 +22,9 @@ const inputCidade = document.querySelector("#user-cidade");
 const inputEstado = document.querySelector("#user-estado");
 const inputObs = document.querySelector("#user-obs");
 
+const inputBusca = document.querySelector("#user-busca");
+
+
 const form = document.querySelector("#user-form");
 const tabelaCorpo = document.querySelector("#user-table-body");
 
@@ -80,9 +83,11 @@ function salvarNoStorage(){
     localStorage.setItem("cadastro_usuarios",JSON.stringify(usuarios));
 }
 
-function renderizarTabela(){
+//se usuariosFiltrados == null, vai carregar todos usuarios para usuariosFiltrados
+//se usuariosFiltrados vier registro, mostra os valores
+function renderizarTabela(usuariosFiltrados = usuarios) {
     tabelaCorpo.innerHTML = "";
-    usuarios.forEach(user => {
+    usuariosFiltrados.forEach(user => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td>${user.nome}</td>
@@ -161,11 +166,32 @@ async function buscarCEP() {
 
 }
 
+function buscarUsuario () {
 
-function inicializar(){
+    const conteudo = inputBusca.value.toLowerCase().trim();
+    console.log(conteudo);
+
+    if (!conteudo) {
+        renderizarTabela();
+        return;
+    }
+
+    usuariosFiltrados = usuarios.filter(user => {
+        return  user.nome.toLowerCase().trim().includes(conteudo) || 
+                user.sobrenome.toLowerCase().trim().includes(conteudo) || 
+                user.email.toLowerCase().trim().includes(conteudo);
+    });          
+    renderizarTabela(usuariosFiltrados);
+    console.log(usuariosFiltrados);
+}
+
+
+function inicializar() {
     btnAdicionar.addEventListener("click",mostrarTelaCadastro);
     btnVoltarLista.addEventListener("click",mostrarTelaLista);
     btnCEP.addEventListener("click",buscarCEP);
+
+    inputBusca.addEventListener('input',buscarUsuario);
 
     form.addEventListener("submit", salvarUsuario);
     mostrarTelaLista();

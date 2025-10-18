@@ -14,9 +14,17 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1>Lista de Usuários</h1>
                 <div>
+                    <button class="btn btn-warning" id="btn-download"><i class="bi bi-download"></i> Download Arquivo</button>
+                    <button class="btn btn-success" id="btn-upload"><i class="bi bi-upload"></i> Upload Arquivo</button>
                     <button class="btn btn-primary" id="btn-adicionar"><i class="bi bi-plus-circle"></i> Adicionar Usuário</button>
                 </div>
             </div>
+
+            <!-- div.mb-3>input:search.form-control#user-busca -->
+            <div class="mb-3">
+                    <input type="search" name="user-busca" id="user-busca" class="form-control" placeholder="Busque por nome, sobrenome e e-mail...">
+            </div>
+            
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
                     <thead class="table-info">
