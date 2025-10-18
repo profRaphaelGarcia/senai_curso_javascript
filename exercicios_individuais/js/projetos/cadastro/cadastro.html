@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuários</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">        
+        <section id="tela-lista" class="card shadow p-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1>Lista de Usuários</h1>
+                <div>
+                    <button class="btn btn-primary" id="btn-adicionar"><i class="bi bi-plus-circle"></i> Adicionar Usuário</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-info">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Sobrenome</th>
+                            <th>Email</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="tela-cadastro" class="card shadow p-5 d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 id="form-titulo">Adicionar Novo Usuário</h1>
+                <button class="btn btn-secondary" id="btn-voltar-lista"><i class="bi bi-arrow-left"></i> Voltar para a Lista</button>
+            </div>
+            <div class="card p-4">
+                <form id="user-form">
+                    <input type="hidden" id="user-id">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="user-nome" class="form-label">Nome</label>
+                            <input type="text" id="user-nome" class="form-control" placeholder="Digite seu nome" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="user-sobrenome" class="form-label">Sobrenome</label>
+                            <input type="text" id="user-sobrenome" class="form-control" placeholder="Digite seu sobrenome" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user-email" class="form-label">Email</label>
+                        <input type="email" id="user-email" class="form-control" placeholder="Digite seu email" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="user-cep" class="form-label">CEP</label>
+                            <div class="input-group">
+                                <input type="text" id="user-cep" class="form-control" maxlength="9" placeholder="Digite o CEP">
+                                <button class="btn btn-outline-secondary" type="button" id="btn-buscar-cep">Buscar</button>
+                            </div>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <label for="user-rua" class="form-label">Rua</label>
+                            <input type="text" id="user-rua" class="form-control" placeholder="Digite a rua">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="user-numero" class="form-label">Número</label>
+                            <input type="text" id="user-numero" class="form-control" placeholder="Digite o número">
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <label for="user-complemento" class="form-label">Complemento</label>
+                            <input type="text" id="user-complemento" class="form-control" placeholder="Digite o complemento">
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <label for="user-bairro" class="form-label">Bairro</label>
+                            <input type="text" id="user-bairro" class="form-control" placeholder="Digite o bairro">
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <label for="user-cidade" class="form-label">Cidade</label>
+                            <input type="text" id="user-cidade" class="form-control" placeholder="Digite a cidade">
+                        </div>
+                         <div class="col-md-2 mb-3">
+                            <label for="user-estado" class="form-label">Estado</label>
+                            <input type="text" id="user-estado" class="form-control" placeholder="Digite o estado">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user-obs" class="form-label">Observações</label>
+                        <textarea id="user-obs" class="form-control" rows="3" placeholder="Digite suas observações"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Salvar Usuário</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+    </div>
+    <script src="cadastro.js"></script>
+</body>
+</html>
