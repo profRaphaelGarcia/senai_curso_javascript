@@ -170,8 +170,8 @@ async function buscarCEP() {
             inputRua.value = dados.logradouro;
             inputComplemento.value = dados.complemento;
             inputBairro.value = dados.bairro;
-            inputCidade = dados.localidade;
-            inputEstado = dados.estado;
+            inputCidade.value = dados.localidade;
+            inputEstado.value = dados.estado;
         }
         else   
             alert("CEP inválido. Verifique o numero e tente novamente!");
