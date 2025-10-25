@@ -30,11 +30,7 @@
                         <label for="desconto" class="form-label">Desconto (%):</label>
                         <input type="number" class="form-control" id="desconto" value="0" min="0" max="100">
                     </div>
-                    <div class="col-md-4">
-                        <label for="mensalidade" class="form-label">Mensalidade (manutenção):</label>
-                        <input type="number" class="form-control" id="mensalidade" value="0" min="0">
-                    </div>
-                    <div class="col mt-4">
+                    <div class="col-12 mt-4">
                         <div class="form-check form-switch fs-5">
                             <input class="form-check-input" type="checkbox" id="inclui-design">
                             <label class="form-check-label" for="inclui-design">Incluir Design de UI/UX (Custo
@@ -68,10 +64,6 @@
                             <span>TOTAL:</span>
                             <span id="resumo-total">R$ 0,00</span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between fs-6 fw-bold border-top pt-3">
-                            <span>MENSALIDADE (manutenção):</span>
-                            <span id="resumo-mensalidade">R$ 0,00</span>
-                        </li>
                     </ul>
                 </div>
 
@@ -82,7 +74,10 @@
             <small class="text-muted">Desenvolvido por <span class="seu-nome"></span></small>
     </div>
 
+
+
     <script src="orcamento.js"></script>
+
 </body>
 
 </html>
