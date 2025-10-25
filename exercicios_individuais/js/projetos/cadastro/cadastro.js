@@ -28,6 +28,17 @@ const inputObs = document.querySelector("#user-obs");
 
 const inputBusca = document.querySelector("#user-busca");
 
+//modal
+const modalDetalhes = document.querySelector("#detalhes-modal");
+const modalNome = document.querySelector("#modal-nome");
+const modalEmail = document.querySelector("#modal-email");
+const modalEndereco = document.querySelector("#modal-endereco-completo");
+const modalObservacao = document.querySelector("#modal-obs");
+
+const modalBtnEditar = document.querySelector("#modal-btn-editar");
+const modalBtnExcluir = document.querySelector("#modal-btn-excluir");
+
+const modal = new bootstrap.Modal(modalDetalhes);
 
 const form = document.querySelector("#user-form");
 const tabelaCorpo = document.querySelector("#user-table-body");
@@ -99,8 +110,10 @@ function renderizarTabela(usuariosFiltrados = usuarios) {
             <td>${user.email}</td>
             <td>
                 <button type="button" class="btn btn-sm btn-warning" data-id="${user.id}">Editar</button>
-
                 <button type="button" class="btn btn-sm btn-danger" data-id="${user.id}">Excluir</button>
+                <button type="button" class="btn btn-sm btn-primary" data-id="${user.id}">Mostrar Detalhes</button>
+
+
             </td>
         `;
 
@@ -201,8 +214,59 @@ function downloadArquivo () {
 
 }
 
-function uploadArquivo () {
+function uploadArquivo (evento) {
+    const arquivo = evento.target.files[0];
+    
+    if (!arquivo)
+        return;
 
+    const leitor = new FileReader();
+        
+    leitor.onload = function(evento2) {
+        
+        const conteudoArquivo = evento2.target.result;
+        const usuariosImportados = JSON.parse(conteudoArquivo);
+
+        if (!Array.isArray(usuariosImportados)) {
+            alert("O arquivo não é um array válido!");
+            return;
+        }
+
+        if (confirm("Deseja realmente substituir as informações dos usuários?")) {
+            usuarios = usuariosImportados;
+            salvarNoStorage();
+            renderizarTabela();
+            alert("Os usuários foram importados com sucesso!");
+            inputUpload.value = "";
+            //location.reload(true);
+
+        }
+
+    }   
+
+    leitor.readAsText(arquivo);
+
+    
+}
+
+function mostrarDetalhesUsuario(id) {
+    const user = usuarios.find(usuario => usuario.id === id);
+
+    if (!user)
+        return;
+
+    modalNome.textContent = `${user.nome} ${user.sobrenome}`;
+    modalEmail.textContent = user.email;
+
+    //.join vai converter o array em texto e colocar um espaço para separar cada elemento
+    const endereco = [user.rua, user.numero, user.bairro, user.complemento, user.cidade, user.estado, user.cep].filter(Boolean).join(", ");
+    modalEndereco.textContent = endereco;
+    modalObservacao.textContent = user.obs;
+
+    modalBtnEditar.dataset.id = user.id;
+    modalBtnExcluir.dataset.id = user.id;
+
+    modal.show();
 }
 
 
@@ -222,18 +286,44 @@ function inicializar() {
 
     tabelaCorpo.addEventListener("click", (event) => {
         const target = event.target.closest("button");
-        if(!target) return
+        if(!target) return;
         
         const id = Number(target.dataset.id);
         
-        if (isNaN(id)) return
+        if (isNaN(id)) return;
 
-        if (target.classList.contains("btn-warning")){
+        if (target.classList.contains("btn-warning"))
             editarUsuario(id);
-        } else if (target.classList.contains("btn-danger")){
+        else if (target.classList.contains("btn-danger"))
             excluirUsuario(id);
-        }        
+        else if (target.classList.contains("btn-primary"))
+            mostrarDetalhesUsuario(id);
+               
     })
+
+
+    modalDetalhes.addEventListener("click", (event) => {
+        const target = event.target.closest("button");
+        if(!target) return;
+        
+        const id = Number(target.dataset.id);
+        
+        if (isNaN(id)) return;
+
+        if (target.classList.contains("btn-warning")) 
+            editarUsuario(id);
+        else if (target.classList.contains("btn-danger"))
+            excluirUsuario(id);
+
+        modal.hide();
+
+               
+    })
+
+
+
+
+
 }
 
 inicializar();
